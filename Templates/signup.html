@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign Up </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static 'images3/icons/favicon.ico' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts3/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts3/iconic/css/material-design-iconic-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/animsition/css/animsition.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/daterangepicker/daterangepicker.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css3/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css3/main.css' %}">
+
+</head>
+
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post">
+                    {% csrf_token %}
+					<span class="login100-form-title p-b-26">
+                        <strong> SIGN UP </strong>			 
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class=""></i>
+					</span>
+
+                    <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="name">
+						<span class="focus-input100" data-placeholder="Name"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="email"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100" data-placeholder="Username"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password1" name="password1">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password2" name="password2">
+						<span class="focus-input100" data-placeholder="Confirm Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" style="background-color: #283779;">
+								Login
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	<script src="{% static 'vendor3/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'vendor3/animsition/js/animsition.min.js' %}"></script>
+	<script src="{% static 'vendor3/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor3/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'vendor3/select2/select2.min.js' %}"></script>
+	<script src="{% static 'vendor3/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor3/daterangepicker/daterangepicker.js' %}"></script>
+	<script src="{% static 'vendor3/countdowntime/countdowntime.js' %}"></script>
+	<script src="{% static 'js3/main.js' %}"></script>
+
+</body>
+</html>

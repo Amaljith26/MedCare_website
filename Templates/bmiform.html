@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'basic.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI INDEX</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"  style="background-color: rgb(250, 250, 250);">
+        <div class="container"><a class="navbar-brand" href="index.html"><span style="color: rgb(18, 18, 77);"><strong>MediCare</strong></span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'medlist' %}">BMI</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'medlist' %}">Daily Fitness</a></li>
+            </ul><a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="#!">Sign In</a>
+          </div>
+        </div>
+      </nav>
+      
+      
+      <section>
+        <hr>
+        <div class="container-predict" style="text-align: center;">
+            <h2><strong>Calculate your BMI</strong></h2>
+        </div>
+        
+        <div class="container">
+          {% if bmi is None %}
+            <form method="POST" action="{% url 'BMI' %}">
+                {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="Enter your name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" class="form-control" name="age" id="age">
+                  </div>
+                  <div class="mb-3">
+                    <label for="Height" class="form-label">Height</label>
+                    <input type="text" class="form-control" name="height" id="height" placeholder="Height in cm">
+                  </div>
+                  <div class="mb-3">
+                    <label for="weight" class="form-label">Weight</label>
+                    <input type="text" class="form-control" name="weight" id="weight"placeholder="weight in kg ">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Check</button>
+            </form>
+          {% else %}
+            {% if error_message %}
+              <div class="alert alert-danger">
+                {{ error_message }}
+              </div>
+            {% endif %}
+
+            {% if bmi is not None %}
+              <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">{{ result }}</h4>
+                <p>{{ bmi_category }}</p>
+                <hr>
+                <p class="mb-0">Healthy Body, Balanced Life – Know Your BMI!</p>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+    </section>
+    
+</body>
+</html>
